@@ -1,4 +1,4 @@
-class BandMember {
+class BandMember {                          //create class for members of band
     constructor(name, instrument) {
         this.name = name;
         this.instrument = instrument;
@@ -9,7 +9,7 @@ class BandMember {
     }
 }
 
-class Band {
+class Band {                                 //class for bands
     constructor(name) {
         this.name = name;
         this.bandMembers = [];
@@ -22,7 +22,7 @@ class Menu {
         this.selectedBand = null;
     }
 
-    start () {
+    start () {                                    //creates main menu functionality
         let selection = this.showMainMenuOptions();
 
         while (selection != 0) {
@@ -46,8 +46,8 @@ class Menu {
         }
         alert('Goodbye!');
     }
-
-    showMainMenuOptions() {
+ 
+    showMainMenuOptions() {                                  //displays main menu
         return prompt(`
         0) exit
         1) create new band
@@ -57,7 +57,7 @@ class Menu {
         `);
     }
 
-    showBandMenuOptions(bandInfo) {
+    showBandMenuOptions(bandInfo) {                          //options when viewing a band
         return prompt(`
         0) back
         1) add band member
@@ -67,12 +67,12 @@ class Menu {
         `)
     }
 
- createBand() {
+ createBand() {                                           //creates a band from main menu
     let name = prompt('Enter new band name:');
     this.bands.push(new Band(name));
  }
 
- viewBand() {
+ viewBand() {                                            //views band from main menu
     let index = prompt('Enter the index of the band you wish to view:');
     if (index > -1 && index < this.bands.length) {
         this.selectedBand = this.bands[index];
@@ -95,27 +95,27 @@ class Menu {
     }
  }
 
- deleteBand() {
+ deleteBand() {                                       //function to delete a band
     let index = prompt('Please enter the index of the band you wish to delete');
     if (index > -1 && index < this.bands.length) {
         this.bands.splice(index, 1);
     }
  }
 
- createBandMember() {
+ createBandMember() {                                 //function to create a band member
     let name = prompt('Enter name for new band member:');
     let instrument = prompt('Enter instrument new band member will play:');
     this.selectedBand.bandMembers.push(new BandMember(name, instrument));
  }
 
- deleteBandMember() {
+ deleteBandMember() {                                  //function to remove band member
     let index = prompt('Enter the index of the band member you wish to delete');
     if (index > -1 && index < this.selectedBand.bandMembers.length) {
         this.selectedBand.bandMembers.splice(index, 1);
     }
  }
 
- displayBands() {
+ displayBands() {                                     //function to show all input bands
     let bandString = '';
     for (let i = 0; i < this.bands.length; i++) {
         bandString += i + ') ' + this.bands[i].name + `
