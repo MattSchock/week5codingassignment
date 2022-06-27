@@ -10,8 +10,8 @@ class BandMember {
 }
 
 class Band {
-    constructor(bandName) {
-        this.bandName = bandName;
+    constructor(name) {
+        this.name = name;
         this.bandMembers = [];
     }
 }
@@ -110,8 +110,8 @@ class Menu {
 
  deleteBandMember() {
     let index = prompt('Enter the index of the band member you wish to delete');
-    if (index > -1 && index < this.selectedBand.BandMembers.length) {
-        this.selectedBand.BandMembers.splice(index, 1);
+    if (index > -1 && index < this.selectedBand.bandMembers.length) {
+        this.selectedBand.bandMembers.splice(index, 1);
     }
  }
 
