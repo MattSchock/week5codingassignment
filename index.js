@@ -10,10 +10,9 @@ class BandMember {
 }
 
 class Band {
-    constructor(bandName, typeOfMusic) {
+    constructor(bandName) {
         this.bandName = bandName;
-        this.typeOfMusic = typeOfMusic
-        this.members = [];
+        this.bandMembers = [];
     }
 }
 
@@ -70,7 +69,7 @@ class Menu {
 
  createBand() {
     let name = prompt('Enter new band name:');
-    this.bands.push(new Band (name));
+    this.bands.push(new Band(name));
  }
 
  viewBand() {
@@ -81,7 +80,7 @@ class Menu {
         `;
 
         for (let i = 0; i < this.selectedBand.bandMembers.length; i++) {
-            description += i + ') ' + this.selectedBand.BandMembers[i].name + ' - ' + this.selectedBand.bandMembers[i].instrument + `
+            description += i + ') ' + this.selectedBand.bandMembers[i].name + ' - ' + this.selectedBand.bandMembers[i].instrument + `
             `;
         }
 
